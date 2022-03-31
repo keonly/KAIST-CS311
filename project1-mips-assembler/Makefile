@@ -2,8 +2,6 @@ CC  = gcc
 SRC = main.c assembler.c
 OBJ = main.o assembler.o
 TARGET = runfile
-STYLE="{BasedOnStyle: llvm, AllowShortFunctionsOnASingleLine: None, SortIncludes: false}"
-CFORMAT = clang-format-10
 
 default: runfile
 
@@ -12,12 +10,6 @@ default: runfile
  
 $(TARGET): $(OBJ)
 	$(CC) -o $(TARGET) $(OBJ)
-
-format:
-	#######################################################
-	# Process formatting according to the clang format file
-	#######################################################
-	@find . -regex '$(SRC)' | xargs $(CFORMAT) --style=$(STYLE) -i && echo "Completed formatting"
 
 test: default test_1 test_2 test_3 test_4 test_5 
 
