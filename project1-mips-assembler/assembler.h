@@ -15,45 +15,33 @@
 /*******************
  * Deafult Address *
  *******************/
- #define TEXT_ADDR 0x400000
- #define DATA_ADDR 0x10000000
+#define TEXT_ADDR 0x400000
+#define DATA_ADDR 0x10000000
 
- #define DATA_REGION 0
- #define TEXT_REGION 1
+#define DATA_REGION 0
+#define TEXT_REGION 1
 
 /***************************
  * Maximum Length per Line *
  ***************************/
- #define MAX_LEN 100
+#define MAX_LEN 100
 
- /****************************
-  * Maximum Number of Labels *
-  ****************************/
- #define MAX_LABELS 100
+/****************************
+ * Maximum Number of Labels *
+ ****************************/
+#define MAX_LABELS 100
 
 ////////////////////////////// Global Variables ///////////////////////////////
 
 /********************
  * Format Indicator *
  ********************/
-typedef enum {
-    R_FORMAT,
-    I_FORMAT,
-    J_FORMAT,
-    PSEUDO
-} format_type;
+typedef enum { R_FORMAT, I_FORMAT, J_FORMAT, PSEUDO } format_type;
 
 /***********************
  * Line Type Indicator *
  ***********************/
-typedef enum {
-    END,
-    DATA,
-    TEXT,
-    LABEL,
-    WORD,
-    INSTR
-} line_type;
+typedef enum { END, DATA, TEXT, LABEL, WORD, INSTR } line_type;
 
 /////////////////////////////////// Structs ///////////////////////////////////
 
@@ -121,15 +109,15 @@ is_word (char *input)
 /////////////////////////// Function Declarations ///////////////////////////
 
 line_type parse_line (char *);
-char *strslice (char *, int, int);
+char *    strslice (char *, int, int);
 
 char *instr_to_bin_string (char *, int);
 
-int in_instr_set (char *);
+int         in_instr_set (char *);
 format_type check_instr_format (int);
 
 char *int_to_bin_string (int);
-int string_to_int (char *);
+int   string_to_int (char *);
 
 char *separate_label_name (char *);
 
